@@ -27,6 +27,7 @@ steps:
   commands:
   - cp -R ~nemo/.scratchbox2/ /root
   - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git flex bison gcc libtool
+  - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/*.rpm
   - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/jq.spec
   - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   when:
@@ -34,5 +35,5 @@ steps:
       - production
 ```
 
-First command is to put scratchbox2 config from nemo user into root user (you have to build stuff as root). The next line is to add the required packages for building like git, devel-packages aso. On the third line you ae going to rpmbuild a binary file using the given spec file for creating RPMs. Please note that I slightly modified the spec file to clone the needed git repository using the rpmbuild process. The last line copies the RPM files from root rpmbuild dir into the workspace for later usage in build steps or to upload all RPMs into some repository like Github release page or S3 storage.
+First command is to put scratchbox2 config from nemo user into root user (you have to build stuff as root). The next line is to add the required packages for building like git, devel-packages aso. On the third line you are going to install build-time depencencies, like RPMs build on a previous set. On the fourth line you are going to rpmbuild a binary file using the given spec file for creating RPMs. Please note that I slightly modified the spec file to clone the needed git repository using the rpmbuild process. The last line copies the RPM files from root rpmbuild dir into the workspace for later usage in build steps or to upload all RPMs into some repository like Github release page or S3 storage.
 
