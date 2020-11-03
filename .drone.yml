@@ -7,6 +7,20 @@ workspace:
   base: /home/nemo/rpmbuild
 
 steps:
+  - name: restore-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: /home/cache/drone
+      restore: true
+      mount:
+        - RPMS
   - name: pkg-jq
     image: coderus/sailfishos-platform-sdk
     user: root
@@ -25,7 +39,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: /home/cache/drone
+      path: /home/cache/jq
       rebuild: true
       mount:
         - RPMS
@@ -38,6 +52,20 @@ workspace:
   base: /home/nemo/rpmbuild
 
 steps:
+  - name: restore-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: /home/cache/drone
+      restore: true
+      mount:
+        - RPMS
   - name: pkg-libmicrohttpd
     image: coderus/sailfishos-platform-sdk
     user: root
@@ -69,6 +97,20 @@ workspace:
   base: /home/nemo/rpmbuild
 
 steps:
+  - name: restore-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: /home/cache/drone
+      restore: true
+      mount:
+        - RPMS
   - name: pkg-kyotocabinet
     image: coderus/sailfishos-platform-sdk
     user: root
@@ -100,6 +142,20 @@ workspace:
   base: /home/nemo/rpmbuild
 
 steps:
+  - name: restore-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: /home/cache/drone
+      restore: true
+      mount:
+        - RPMS
   - name: pkg-lz4
     image: coderus/sailfishos-platform-sdk
     user: root
@@ -131,6 +187,20 @@ workspace:
   base: /home/nemo/rpmbuild
 
 steps:
+  - name: restore-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: /home/cache/drone
+      restore: true
+      mount:
+        - RPMS
   - name: pkg-libpostal
     image: coderus/sailfishos-platform-sdk
     user: root
@@ -162,6 +232,20 @@ workspace:
   base: /home/nemo/rpmbuild
 
 steps:
+  - name: restore-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: /home/cache/drone
+      restore: true
+      mount:
+        - RPMS
   - name: pkg-libmarisa
     image: coderus/sailfishos-platform-sdk
     user: root
@@ -193,6 +277,20 @@ workspace:
   base: /home/nemo/rpmbuild
 
 steps:
+  - name: restore-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: /home/cache/drone
+      restore: true
+      mount:
+        - RPMS
   - name: pkg-proj
     image: coderus/sailfishos-platform-sdk
     user: root
