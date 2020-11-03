@@ -14,9 +14,9 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git flex bison gcc libtool
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/jq.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
-    when:
-      target:
-        - production
+  #   when:
+  #     target:
+  #       - production
 
   - name: pkg-libmicrohttpd
     image: coderus/sailfishos-platform-sdk
@@ -26,9 +26,9 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ libtool texinfo
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/libmicro.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
-    when:
-      target:
-        - production
+  #    when:
+  #      target:
+  #        - production
 
   - name: pkg-kyotocabinet
     image: coderus/sailfishos-platform-sdk
@@ -38,9 +38,9 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ zlib-devel zlib
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/kyoto.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
-    when:
-      target:
-        - production
+  #    when:
+  #      target:
+  #        - production
 
   - name: pkg-lz4
     image: coderus/sailfishos-platform-sdk
@@ -50,4 +50,3 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/lz4.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
-# test
