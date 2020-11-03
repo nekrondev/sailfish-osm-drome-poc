@@ -22,6 +22,8 @@ steps:
         from_secret: release
       files: ./RPMS/armv7hl/*
       title: pkg-jq
+      when:
+        event: tag
 ---
 kind: pipeline
 type: docker
@@ -46,6 +48,8 @@ steps:
         from_secret: release
       files: ./RPMS/armv7hl/*
       title: pkg-libmicrohttpd
+      when:
+        event: tag
 ---
 kind: pipeline
 type: docker
@@ -70,6 +74,8 @@ steps:
         from_secret: release
       files: ./RPMS/armv7hl/*
       title: pkg-kyotocabinet
+      when:
+        event: tag
 ---
 kind: pipeline
 type: docker
@@ -94,6 +100,8 @@ steps:
         from_secret: release
       files: ./RPMS/armv7hl/*
       title: pkg-lz4
+      when:
+        event: tag
 ---
 kind: pipeline
 type: docker
@@ -118,6 +126,8 @@ steps:
         from_secret: release
       files: ./RPMS/armv7hl/*
       title: pkg-libpostal
+      when:
+        event: tag
 ---
 kind: pipeline
 type: docker
@@ -142,6 +152,8 @@ steps:
         from_secret: release
       files: ./RPMS/armv7hl/*
       title: pkg-libmarisa
+      when:
+        event: tag
 ---
 kind: pipeline
 type: docker
@@ -166,6 +178,8 @@ steps:
         from_secret: release
       files: ./RPMS/armv7hl/*
       title: pkg-proj
+      when:
+        event: tag
 ---
 kind: pipeline
 type: docker
@@ -191,6 +205,8 @@ steps:
         from_secret: release
       files: ./RPMS/armv7hl/*
       title: pkg-mapnik
+      when:
+        event: tag
 depends_on:
   - proj
 ---
@@ -218,6 +234,8 @@ steps:
         from_secret: release
       files: ./RPMS/armv7hl/*
       title: pkg-valhalla-lite
+      when:
+        event: tag
 depends_on:
   - jq
   - lz4
@@ -246,6 +264,8 @@ steps:
         from_secret: release
       files: ./RPMS/armv7hl/*
       title: pkg-libosmscout
+      when:
+        event: tag
 depends_on:
   - mapnik
   - valhalla
@@ -274,6 +294,8 @@ steps:
         from_secret: release
       files: ./RPMS/armv7hl/*
       title: pkg-osmscout-server
+      when:
+        event: tag
 depends_on:
   - libosmscount
 #---
