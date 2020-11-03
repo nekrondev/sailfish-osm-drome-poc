@@ -15,6 +15,20 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git flex bison gcc libtool
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/jq.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+  - name: rebuild-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: ~/drone
+      rebuild: true
+      mount:
+        - RPMS
 ---
 kind: pipeline
 type: docker
@@ -32,6 +46,20 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ libtool texinfo
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/libmicro.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+  - name: rebuild-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: ~/drone
+      rebuild: true
+      mount:
+        - RPMS
 ---
 kind: pipeline
 type: docker
@@ -49,6 +77,20 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ zlib-devel zlib
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/kyoto.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+  - name: rebuild-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: ~/drone
+      rebuild: true
+      mount:
+        - RPMS
 ---
 kind: pipeline
 type: docker
@@ -66,6 +108,20 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/lz4.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+  - name: rebuild-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: ~/drone
+      rebuild: true
+      mount:
+        - RPMS
 ---
 kind: pipeline
 type: docker
@@ -83,6 +139,20 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ libtool
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/libpostal.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+  - name: rebuild-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: ~/drone
+      rebuild: true
+      mount:
+        - RPMS
 ---
 kind: pipeline
 type: docker
@@ -100,6 +170,20 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/marisa.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+  - name: rebuild-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: ~/drone
+      rebuild: true
+      mount:
+        - RPMS
 ---
 kind: pipeline
 type: docker
@@ -117,6 +201,20 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ libtool
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/proj.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+  - name: rebuild-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: ~/drone
+      rebuild: true
+      mount:
+        - RPMS
 ---
 kind: pipeline
 type: docker
@@ -126,6 +224,20 @@ workspace:
   base: /home/nemo/rpmbuild
 
 steps:
+  - name: restore-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: ~/drone
+      restore: true
+      mount:
+        - RPMS
   - name: pkg-mapnik
     image: coderus/sailfishos-platform-sdk
     user: root
@@ -135,6 +247,20 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/*.rpm
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/mapnik.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+  - name: rebuild-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: ~/drone
+      rebuild: true
+      mount:
+        - RPMS
 depends_on:
   - proj
 ---
@@ -146,6 +272,20 @@ workspace:
   base: /home/nemo/rpmbuild
 
 steps:
+  - name: restore-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: ~/drone
+      restore: true
+      mount:
+        - RPMS
   - name: pkg-valhalla-lite
     image: coderus/sailfishos-platform-sdk
     user: root
@@ -155,6 +295,20 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/*.rpm
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/val.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+  - name: rebuild-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: ~/drone
+      rebuild: true
+      mount:
+        - RPMS
 depends_on:
   - jq
   - lz4
@@ -167,6 +321,20 @@ workspace:
   base: /home/nemo/rpmbuild
 
 steps:
+  - name: restore-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: ~/drone
+      restore: true
+      mount:
+        - RPMS
   - name: pkg-libosmscout
     image: coderus/sailfishos-platform-sdk
     user: root
@@ -176,6 +344,20 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/*.rpm
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/libosmscout.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+  - name: rebuild-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: ~/drone
+      rebuild: true
+      mount:
+        - RPMS
 depends_on:
   - mapnik
   - valhalla
@@ -188,6 +370,20 @@ workspace:
   base: /home/nemo/rpmbuild
 
 steps:
+  - name: restore-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: ~/drone
+      restore: true
+      mount:
+        - RPMS
   - name: pkg-osmscout-server
     image: coderus/sailfishos-platform-sdk
     user: root
@@ -197,13 +393,50 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/*.rpm
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/osmserver.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+  - name: rebuild-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: ~/drone
+      rebuild: true
+      mount:
+        - RPMS
+depends_on:
+  - libosmscount
+---
+kind: pipeline
+type: docker
+name: github-release
 
+workspace:
+  base: /home/nemo/rpmbuild
+
+steps:
+  - name: restore-cache
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: cache_server
+      port: 22
+      username:
+        from_secret: cache_user
+      password:
+        from_secret: cache_password
+      path: ~/drone
+      restore: true
+      mount:
+        - RPMS
   - name: publish
     image: plugins/github-release
     settings:
       api_key:
         from_secret: release
       files: ./RPMS/armv7hl/*
-
 depends_on:
-  - libosmscount
+  - osmscoutserver

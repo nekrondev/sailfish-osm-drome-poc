@@ -27,7 +27,7 @@ steps:
   commands:
   - cp -R ~nemo/.scratchbox2/ /root
   - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git flex bison gcc libtool
-  - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/*.rpm
+  - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/*.rpm
   - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/jq.spec
   - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   when:
