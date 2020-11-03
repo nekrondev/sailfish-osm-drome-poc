@@ -14,9 +14,6 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git flex bison gcc libtool
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/jq.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
-  #   when:
-  #     target:
-  #       - production
 
   - name: pkg-libmicrohttpd
     image: coderus/sailfishos-platform-sdk
@@ -26,9 +23,6 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ libtool texinfo
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/libmicro.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
-  #    when:
-  #      target:
-  #        - production
 
   - name: pkg-kyotocabinet
     image: coderus/sailfishos-platform-sdk
@@ -38,9 +32,6 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ zlib-devel zlib
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/kyoto.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
-  #    when:
-  #      target:
-  #        - production
 
   - name: pkg-lz4
     image: coderus/sailfishos-platform-sdk
@@ -50,3 +41,77 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/lz4.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+
+  - name: pkg-libpostal
+    image: coderus/sailfishos-platform-sdk
+    user: root
+    commands:
+      - cp -R ~nemo/.scratchbox2/ /root
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ libtool
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/libpostal.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+
+  - name: pkg-libmarisa
+    image: coderus/sailfishos-platform-sdk
+    user: root
+    commands:
+      - cp -R ~nemo/.scratchbox2/ /root
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/marisa.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+
+  - name: pkg-proj
+    image: coderus/sailfishos-platform-sdk
+    user: root
+    commands:
+      - cp -R ~nemo/.scratchbox2/ /root
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ libtool
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/proj.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+
+  - name: pkg-mapnik
+    image: coderus/sailfishos-platform-sdk
+    user: root
+    commands:
+      - cp -R ~nemo/.scratchbox2/ /root
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ python harfbuzz-devel sqlite-devel boost-devel freetype-devel libxml2-devel libjpeg-turbo-devel libpng-devel libtiff-devel cairo-devel
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/*.rpm
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/mapnik.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+
+  - name: pkg-valhalla-lite
+    image: coderus/sailfishos-platform-sdk
+    user: root
+    commands:
+      - cp -R ~nemo/.scratchbox2/ /root
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ libtool vim-enhanced cmake lua lua-devel protobuf-devel libcurl-devel boost-devel boost-date-time boost-filesystem boost-system boost-iostreams boost-regex boost-system zlib-devel protobuf zlib
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/*.rpm
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/val.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+
+  - name: pkg-libosmscout
+    image: coderus/sailfishos-platform-sdk
+    user: root
+    commands:
+      - cp -R ~nemo/.scratchbox2/ /root
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git protobuf cmake protobuf-devel libxml2-devel
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/*.rpm
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/libosmscout.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+
+  - name: pkg-osmscout-server
+    image: coderus/sailfishos-platform-sdk
+    user: root
+    commands:
+      - cp -R ~nemo/.scratchbox2/ /root
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git zlib libcurl protobuf-devel boost-devel boost-date-time boost-chrono boost-filesystem boost-iostreams boost-regex boost-system desktop-file-utils systemd-devel
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/*.rpm
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/osmserver.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+
+  - name: publish
+    image: plugins/github-release
+    settings:
+      api_key:
+        from_secret: release
+      files: ./RPMS/armv7hl/*
