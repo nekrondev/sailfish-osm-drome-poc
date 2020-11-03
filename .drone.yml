@@ -50,3 +50,4 @@ steps:
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/lz4.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
+# test
