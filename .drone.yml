@@ -25,7 +25,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: ~/drone
+      path: /home/cache/drone
       rebuild: true
       mount:
         - RPMS
@@ -56,7 +56,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: ~/drone
+      path: /home/cache/drone
       rebuild: true
       mount:
         - RPMS
@@ -87,7 +87,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: ~/drone
+      path: /home/cache/drone
       rebuild: true
       mount:
         - RPMS
@@ -118,7 +118,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: ~/drone
+      path: /home/cache/drone
       rebuild: true
       mount:
         - RPMS
@@ -149,7 +149,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: ~/drone
+      path: /home/cache/drone
       rebuild: true
       mount:
         - RPMS
@@ -180,7 +180,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: ~/drone
+      path: /home/cache/drone
       rebuild: true
       mount:
         - RPMS
@@ -211,7 +211,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: ~/drone
+      path: /home/cache/drone
       rebuild: true
       mount:
         - RPMS
@@ -234,7 +234,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: ~/drone
+      path: /home/cache/drone
       restore: true
       mount:
         - RPMS
@@ -257,7 +257,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: ~/drone
+      path: /home/cache/drone
       rebuild: true
       mount:
         - RPMS
@@ -282,7 +282,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: ~/drone
+      path: /home/cache/drone
       restore: true
       mount:
         - RPMS
@@ -305,7 +305,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: ~/drone
+      path: /home/cache/drone
       rebuild: true
       mount:
         - RPMS
@@ -331,7 +331,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: ~/drone
+      path: /home/cache/drone
       restore: true
       mount:
         - RPMS
@@ -354,7 +354,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: ~/drone
+      path: /home/cache/drone
       rebuild: true
       mount:
         - RPMS
@@ -380,7 +380,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: ~/drone
+      path: /home/cache/drone
       restore: true
       mount:
         - RPMS
@@ -403,7 +403,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: ~/drone
+      path: /home/cache/drone
       rebuild: true
       mount:
         - RPMS
@@ -428,7 +428,7 @@ steps:
         from_secret: cache_user
       password:
         from_secret: cache_password
-      path: ~/drone
+      path: /home/cache/drone
       restore: true
       mount:
         - RPMS
