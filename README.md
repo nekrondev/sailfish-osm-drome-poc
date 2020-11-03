@@ -43,9 +43,6 @@ steps:
   - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/*.rpm
   - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/jq.spec
   - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
-  when:
-    target:
-      - production
 
   - name: upload-artifacts
     image: rclone/rclone

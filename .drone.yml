@@ -378,6 +378,12 @@ steps:
       - rclone copy ./RPMS :s3:cache/RPMS
 depends_on:
   - libosmscount
+  - mapnik
+  - valhalla
+  - libpostal
+  - libmicrohttpd
+  - kyotocabinet
+  - marisa
 ---
 kind: pipeline
 type: docker
