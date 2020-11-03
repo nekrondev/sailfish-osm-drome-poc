@@ -333,8 +333,7 @@ steps:
     commands:
       - rclone copy ./RPMS :s3:cache/RPMS
 depends_on:
-  - mapnik
-  - valhalla
+  - marisa
 ---
 kind: pipeline
 type: docker
@@ -361,7 +360,7 @@ steps:
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git zlib libcurl protobuf-devel boost-devel boost-date-time boost-chrono boost-filesystem boost-iostreams boost-regex boost-system desktop-file-utils systemd-devel
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git sqlite3 zlib libcurl protobuf-devel boost-devel boost-date-time boost-chrono boost-filesystem boost-iostreams boost-regex boost-system desktop-file-utils systemd-devel
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/*.rpm
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/osmserver.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
@@ -379,3 +378,35 @@ steps:
       - rclone copy ./RPMS :s3:cache/RPMS
 depends_on:
   - libosmscount
+---
+kind: pipeline
+type: docker
+name: publish-to-github
+
+workspace:
+  base: /home/nemo/rpmbuild
+
+steps:
+  - name: download-artifacts
+    image: rclone/rclone
+    environment:
+      RCLONE_S3_PROVIDER: Minio
+      RCLONE_S3_ACCESS_KEY_ID:
+        from_secret: s3_access_key
+      RCLONE_S3_SECRET_ACCESS_KEY:
+        from_secret: s3_secret_key
+      RCLONE_S3_ENDPOINT:
+        from_secret: s3_endpoint
+    commands:
+      - rclone copy :s3:cache/RPMS ./RPMS
+  - name: publish-github-release
+    image: plugins/github-release
+    settings:
+      api_key:
+        from_secret: release
+      files: ./RPMS/armv7hl/*
+      title: Build Artifacts
+      when:
+        event: tag
+depends_on:
+  - osmscoutserver
