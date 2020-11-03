@@ -317,7 +317,7 @@ steps:
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git protobuf cmake protobuf-devel libxml2-devel
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/*.rpm
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/libmarisa*.rpm
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/libosmscout.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
