@@ -69,12 +69,12 @@ JOBS=16 %{__make} reset
 
 %configure INPUT_PLUGINS="sqlite,shape" DESTDIR=%{buildroot} PREFIX="/usr" CUSTOM_CXXFLAGS="$CXXFLAGS -fPIC -g0" CUSTOM_CFLAGS="$CFLAGS -fPIC -g0" CUSTOM_LDFLAGS="$LDFLAGS" LINKING=shared OPTIMIZATION=2 CPP_TESTS=no CAIRO=no PLUGIN_LINKING=static MEMORY_MAPPED_FILE=no DEMO=no MAPNIK_INDEX=no MAPNIK_RENDER=no #ENABLE_STATS=True ENABLE_LOG=True 
 
-JOBS=16 %{__make} %{?_smp_mflags}
+#JOBS=16 %{__make} %{?_smp_mflags}
 
 %install
 cd %{name}-%{version}/mapnik
 %{__rm} -rf %{buildroot}
-%{__make} install DESTDIR=%{buildroot}
+JOBS=16 %{__make} install DESTDIR=%{buildroot}
 cp -r deps/mapbox/variant/include/mapbox %{buildroot}/usr/include
 
 %clean
