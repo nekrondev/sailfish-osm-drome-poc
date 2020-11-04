@@ -360,7 +360,7 @@ steps:
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git sqlite-devel cairo-devel harfbuzz-devel libjpeg-turbo-devel libpng-devel libtiff-devel libxml2-devel zlib libcurl protobuf-devel boost-devel boost-date-time boost-chrono boost-filesystem boost-iostreams boost-regex boost-system desktop-file-utils systemd-devel
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git libcurl sqlite-devel cairo-devel harfbuzz-devel libjpeg-turbo-devel libpng-devel libtiff-devel libxml2-devel zlib libcurl protobuf-devel boost-devel boost-date-time boost-chrono boost-filesystem boost-iostreams boost-regex boost-system desktop-file-utils systemd-devel
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/*.rpm
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/osmserver.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
