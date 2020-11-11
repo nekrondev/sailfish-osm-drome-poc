@@ -443,7 +443,7 @@ steps:
       - cp -R ~nemo/.scratchbox2/ /root
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git libcurl-devel openssl-devel
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/*.rpm
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/osmserver.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/mapboxqml.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
     image: rclone/rclone
