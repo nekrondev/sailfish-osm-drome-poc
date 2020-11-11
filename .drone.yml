@@ -415,7 +415,6 @@ steps:
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git cmake gcc-c++ sqlite-devel zlib-devel libcurl-devel libicu-devel
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -iv ./RPMS/armv7hl/*.rpm --nodeps
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/qmapbox.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
