@@ -499,13 +499,13 @@ steps:
     commands:
       - rclone copy :s3:cache/RPMS ./RPMS
       - rclone lsl ./RPMS
-  - name: pkg-osmscout-server
+  - name: pure-maps
     image: coderus/sailfishos-platform-sdk
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git make gettext libkeepalive
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i --force ./RPMS/armv7hl/*.rpm || true
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i --nodeps ./RPMS/armv7hl/*.rpm || true
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/puremaps.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
