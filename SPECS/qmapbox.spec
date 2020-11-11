@@ -47,7 +47,7 @@ cd %{name}-%{version}
 %build
 cd %{name}-%{version}/mapbox-gl-native
 %cmake -DMBGL_WITH_QT=ON -DMBGL_WITH_WERROR=OFF -DCMAKE_INSTALL_PREFIX:PATH=/usr -DMBGL_WITH_QT_HEADLESS=OFF -DMBGL_WITH_QT_TEST=OFF -DMBGL_WITH_QT_DEMO=OFF .
-%{__make} %{?_smp_mflags}
+%{__make} -j16 %{?_smp_mflags}
 
 %install
 cd %{name}-%{version}/mapbox-gl-native
