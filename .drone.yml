@@ -27,6 +27,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy ./RPMS :s3:cache/RPMS
+      - rclone lsl :s3:cache/RPMS
 ---
 kind: pipeline
 type: docker
@@ -56,6 +57,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy ./RPMS :s3:cache/RPMS
+      - rclone lsl :s3:cache/RPMS
 ---
 kind: pipeline
 type: docker
@@ -85,6 +87,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy ./RPMS :s3:cache/RPMS
+      - rclone lsl :s3:cache/RPMS
 ---
 kind: pipeline
 type: docker
@@ -114,6 +117,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy ./RPMS :s3:cache/RPMS
+      - rclone lsl :s3:cache/RPMS
 ---
 kind: pipeline
 type: docker
@@ -143,6 +147,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy ./RPMS :s3:cache/RPMS
+      - rclone lsl :s3:cache/RPMS
 ---
 kind: pipeline
 type: docker
@@ -172,6 +177,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy ./RPMS :s3:cache/RPMS
+      - rclone lsl :s3:cache/RPMS
 ---
 kind: pipeline
 type: docker
@@ -201,6 +207,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy ./RPMS :s3:cache/RPMS
+      - rclone lsl :s3:cache/RPMS
 ---
 kind: pipeline
 type: docker
@@ -222,6 +229,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy :s3:cache/RPMS ./RPMS
+      - rclone lsl ./RPMS
   - name: pkg-mapnik
     image: coderus/sailfishos-platform-sdk
     user: root
@@ -243,6 +251,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy ./RPMS :s3:cache/RPMS
+      - rclone lsl :s3:cache/RPMS
 depends_on:
   - proj
 ---
@@ -266,6 +275,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy :s3:cache/RPMS ./RPMS
+      - rclone lsl ./RPMS
   - name: pkg-valhalla-lite
     image: coderus/sailfishos-platform-sdk
     user: root
@@ -287,6 +297,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy ./RPMS :s3:cache/RPMS
+      - rclone lsl :s3:cache/RPMS
 depends_on:
   - jq
   - lz4
@@ -311,6 +322,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy :s3:cache/RPMS ./RPMS
+      - rclone lsl ./RPMS
   - name: pkg-libosmscout
     image: coderus/sailfishos-platform-sdk
     user: root
@@ -332,6 +344,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy ./RPMS :s3:cache/RPMS
+      - rclone lsl :s3:cache/RPMS
 depends_on:
   - marisa
 ---
@@ -355,6 +368,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy :s3:cache/RPMS ./RPMS
+      - rclone lsl ./RPMS
   - name: pkg-osmscout-server
     image: coderus/sailfishos-platform-sdk
     user: root
@@ -376,6 +390,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy ./RPMS :s3:cache/RPMS
+      - rclone lsl :s3:cache/RPMS
 depends_on:
   - libosmscount
   - mapnik
@@ -415,6 +430,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy ./RPMS :s3:cache/RPMS
+      - rclone lsl :s3:cache/RPMS
 ---
 kind: pipeline
 type: docker
@@ -436,6 +452,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy :s3:cache/RPMS ./RPMS
+      - rclone lsl ./RPMS
   - name: pkg-osmscout-server
     image: coderus/sailfishos-platform-sdk
     user: root
@@ -457,6 +474,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy ./RPMS :s3:cache/RPMS
+      - rclone lsl :s3:cache/RPMS
 depends_on:
   - qmapbox
 ---
@@ -481,6 +499,7 @@ steps:
         from_secret: s3_endpoint
     commands:
       - rclone copy :s3:cache/RPMS ./RPMS
+      - rclone lsl ./RPMS
   - name: publish-github-release
     image: plugins/github-release
     settings:
