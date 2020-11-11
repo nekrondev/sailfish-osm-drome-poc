@@ -74,7 +74,7 @@ git clone --recurse-submodules -j8 %{url}.git %{name}-%{version}
 #git checkout ${latesttag}
 cd %{name}-%{version}/
 
-cp %{SOURCE1} tools/
+cp tools/apikeys_dummy.py tools/apikeys.py
 tools/manage-keys inject . || true
 
 %build
