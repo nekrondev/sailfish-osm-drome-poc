@@ -228,7 +228,7 @@ steps:
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ python harfbuzz-devel sqlite-devel boost-devel freetype-devel libxml2-devel libjpeg-turbo-devel libpng-devel libtiff-devel cairo-devel
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/proj*.rpm
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/proj*.rpm || true
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/mapnik.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
@@ -272,7 +272,7 @@ steps:
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ libtool vim-enhanced cmake lua lua-devel protobuf-devel libcurl-devel boost-devel boost-date-time boost-filesystem boost-system boost-iostreams boost-regex boost-system zlib-devel protobuf zlib
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/*.rpm
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/*.rpm || true
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/val.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
@@ -317,7 +317,7 @@ steps:
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git protobuf cmake protobuf-devel libxml2-devel
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/libmarisa*.rpm
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/libmarisa*.rpm || true
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/libosmscout.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
@@ -361,7 +361,7 @@ steps:
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git libcurl-devel sqlite-devel cairo-devel harfbuzz-devel libjpeg-turbo-devel libpng-devel libtiff-devel libxml2-devel zlib libcurl protobuf-devel boost-devel boost-date-time boost-chrono boost-filesystem boost-iostreams boost-regex boost-system desktop-file-utils systemd-devel
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/*.rpm
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/*.rpm || true
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/osmserver.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
@@ -442,7 +442,7 @@ steps:
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git libcurl-devel openssl-devel
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/*.rpm
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -i ./RPMS/armv7hl/*.rpm || true
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/mapboxqml.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
