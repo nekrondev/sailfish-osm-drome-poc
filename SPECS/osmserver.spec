@@ -75,7 +75,7 @@ Server providing map tiles, search, and routing
 %prep
 #%setup -q -n %{name}-%{version}
 rm -rf %{name}-%{version}
-git clone --recurse-submodules -j8 %{url} %{name}-%{version}
+git clone --branch master --recurse-submodules -j8 %{url} %{name}-%{version}
 cd %{name}-%{version}
 
 %build

@@ -53,7 +53,7 @@ The package provides command line tools to test basic operations of mapnik
 %prep
 #%setup -q -n %{name}-%{version}/mapnik
 rm -rf %{name}-%{version}
-git clone --recurse-submodules -j8 %{url} %{name}-%{version}
+git clone --branch master --recurse-submodules -j8 %{url} %{name}-%{version}
 cd %{name}-%{version}/mapnik
 patch -p1 < ../rpm/mapnik.issue3384.patch
 patch -p1 < ../rpm/mapnik.twkb.patch

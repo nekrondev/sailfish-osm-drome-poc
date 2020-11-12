@@ -54,7 +54,7 @@ Tools for valhalla
 #%setup -q -n %{name}-%{version}/valhalla
 #%patch0 -p1
 rm -rf %{name}-%{version}
-git clone --recurse-submodules -j8 %{url} %{name}-%{version}
+git clone --branch master --recurse-submodules -j8 %{url} %{name}-%{version}
 cd %{name}-%{version}/valhalla
 patch -p1 < ../rpm/0001-set-python-version-in-a-script.patch
 

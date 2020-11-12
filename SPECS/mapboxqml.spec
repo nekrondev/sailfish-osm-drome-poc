@@ -33,7 +33,7 @@ QML plugin for Mapbox GL Native.
 %prep
 #%setup -q -n %{name}-%{version}
 rm -rf %{name}-%{version}
-git clone --recurse-submodules -j8 %{url}.git %{name}-%{version}
+git clone --branch master --recurse-submodules -j8 %{url}.git %{name}-%{version}
 cd %{name}-%{version}
 
 %build
