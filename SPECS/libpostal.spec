@@ -29,7 +29,7 @@ This package provides libraries and headers for development
 #%setup -q -n %{name}-%{version}/libpostal
 rm -rf cd %{name}-%{version}
 git clone --branch devel --recurse-submodules -j8 %{url} %{name}-%{version}
-tar -czf %{_sourcedir}/%{name}-%{version}.tar.gz %{name}-%{version}
+tar -czf %{_sourcedir}/%{name}-%{version}.tar.gz /dev/null
 cd %{name}-%{version}/libpostal
 
 %build

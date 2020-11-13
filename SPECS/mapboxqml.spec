@@ -34,7 +34,7 @@ QML plugin for Mapbox GL Native.
 #%setup -q -n %{name}-%{version}
 rm -rf %{name}-%{version}
 git clone --branch master --recurse-submodules -j8 %{url}.git %{name}-%{version}
-tar -czf %{_sourcedir}/%{name}-%{version}.tar.gz %{name}-%{version}
+tar -czf %{_sourcedir}/%{name}-%{version}.tar.gz /dev/null
 cd %{name}-%{version}
 
 %build

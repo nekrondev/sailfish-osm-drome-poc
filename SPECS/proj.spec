@@ -37,7 +37,7 @@ proj.4 is a standard UNIX filter function which converts geographic coordinates.
 #%setup -q -n %{name}-%{version}/proj.4
 rm -rf cd %{name}-%{version}
 git clone --recurse-submodules -j8 %{url}.git %{name}-%{version}
-tar -czf %{_sourcedir}/%{name}-%{version}.tar.gz %{name}-%{version}
+tar -czf %{_sourcedir}/%{name}-%{version}.tar.gz /dev/null
 cd %{name}-%{version}/proj.4
 
 %build

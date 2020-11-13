@@ -44,7 +44,7 @@ database. Test tools
 #%setup -q -n kyotocabinet-%{version}
 rm -rf %{name}-%{version}
 git clone %{url}.git %{name}-%{version}
-tar -czf %{_sourcedir}/%{name}-%{version}.tar.gz %{name}-%{version}
+tar -czf %{_sourcedir}/%{name}-%{version}.tar.gz /dev/null
 cd %{name}-%{version}
 tar zxvf kyotocabinet-*.tar.gz
 cd kyotocabinet-1.2.77

@@ -69,7 +69,7 @@ search for nearby places by type and share your location.
 #%setup -q
 rm -rf cd %{name}-%{version}
 git clone --branch master --recurse-submodules -j8 %{url}.git %{name}-%{version}
-tar -czf %{_sourcedir}/%{name}-%{version}.tar.gz %{name}-%{version}
+tar -czf %{_sourcedir}/%{name}-%{version}.tar.gz /dev/null
 #latesttag=$(git describe --tags)
 #echo checking out ${latesttag}
 #git checkout ${latesttag}
