@@ -7,7 +7,7 @@ Group: Libraries/Geo
 URL: https://github.com/rinigus/pkg-proj
 
 #Source: http://download.osgeo.org/proj/proj-4.9.3.tar.gz
-Source0: %{name}-%{version}.tar.bz2
+Source0: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires: gcc-c++ libtool

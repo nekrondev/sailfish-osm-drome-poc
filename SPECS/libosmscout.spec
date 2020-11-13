@@ -7,7 +7,7 @@ Release: 1
 Group: Qt/Qt
 License: LGPL
 URL: https://github.com/rinigus/libosmscout
-Source0:    %{name}-%{version}.tar.bz2
+Source0:    %{name}-%{version}.tar.gz
 
 #Requires: protobuf
 Requires: libmarisa

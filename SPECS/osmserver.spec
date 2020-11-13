@@ -21,7 +21,7 @@ Release:    1
 Group:      Qt/Qt
 License:    GPLv3
 URL:        https://github.com/rinigus/osmscout-server
-Source0:    %{name}-%{version}.tar.bz2
+Source0:    %{name}-%{version}.tar.gz
 %if 0%{?sailfishos}
 Source101:  harbour-osmscout-server-rpmlintrc
 %endif
