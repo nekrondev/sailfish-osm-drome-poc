@@ -14,7 +14,7 @@ URL: https://github.com/rinigus/pkg-valhalla-lite
 Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
-Patch0: 0001-set-python-version-in-a-script.patch
+#Patch0: 0001-set-python-version-in-a-script.patch
 
 BuildRequires: gcc-c++ libtool vim-enhanced
 BuildRequires: cmake lua lua-devel

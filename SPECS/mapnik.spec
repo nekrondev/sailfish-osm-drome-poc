@@ -7,8 +7,8 @@ Group: Libraries/Geosciences
 URL: https://github.com/rinigus/pkg-mapnik
 
 Source: %{name}-%{version}.tar.gz
-Patch0:     mapnik.issue3384.patch
-Patch1:     mapnik.twkb.patch
+#Patch0:     mapnik.issue3384.patch
+#Patch1:     mapnik.twkb.patch
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 

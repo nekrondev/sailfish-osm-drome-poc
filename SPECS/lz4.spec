@@ -37,7 +37,7 @@ package provides tools
 #%setup -q -n %{name}-%{version}/lz4
 rm -rf %{name}-%{version}
 git clone --recurse-submodules -j8  %{url}.git %{name}-%{version}
-tar -czf %{_sourcedir}/%{name}-%{version}.tar.gz %{name}-%{version}
+tar -czf %{_sourcedir}/%{name}-%{version}.tar.gz /dev/null
 cd %{name}-%{version}/lz4
 
 

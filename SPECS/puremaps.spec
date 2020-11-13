@@ -24,7 +24,7 @@ Summary: Maps and navigation
 License: GPLv3+
 URL:     https://github.com/rinigus/pure-maps
 Source:  %{name}-%{version}.tar.gz
-Source1: apikeys.py
+#Source1: apikeys.py
 
 BuildRequires: gettext
 BuildRequires: make
