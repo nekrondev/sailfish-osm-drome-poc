@@ -193,7 +193,7 @@ steps:
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ libtool
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bq SPECS/proj.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -ba SPECS/proj.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
     image: rclone/rclone
