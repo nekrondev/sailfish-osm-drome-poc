@@ -38,6 +38,7 @@ libosmscout qt libraries - development files
 #%setup -q -n %{name}-%{version}
 rm -rf %{name}-%{version}
 git clone --recurse-submodules -j8 %{url} %{name}-%{version}
+tar -czf %{_sourcedir}/%{name}-%{version}.tar.gz %{name}-%{version}
 cd %{name}-%{version}
 
 %build

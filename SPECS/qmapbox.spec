@@ -42,6 +42,7 @@ This package contains the development headers for %{name}.
 #%setup -q -n %{name}-%{version}/mapbox-gl-native
 rm -rf %{name}-%{version}
 git clone --branch sfos --recurse-submodules -j8 %{url}.git %{name}-%{version}
+tar -czf %{_sourcedir}/%{name}-%{version}.tar.gz %{name}-%{version}
 cd %{name}-%{version}
 
 %build

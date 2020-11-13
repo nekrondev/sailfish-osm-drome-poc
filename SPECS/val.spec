@@ -55,6 +55,7 @@ Tools for valhalla
 #%patch0 -p1
 rm -rf %{name}-%{version}
 git clone --branch master --recurse-submodules -j8 %{url} %{name}-%{version}
+tar -czf %{_sourcedir}/%{name}-%{version}.tar.gz %{name}-%{version}
 cd %{name}-%{version}/valhalla
 patch -p1 < ../rpm/0001-set-python-version-in-a-script.patch
 

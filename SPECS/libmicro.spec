@@ -42,6 +42,7 @@ application.  This package provides documentation
 #%setup -q -n %{name}-%{version}/libmicrohttpd
 rm -rf %{name}-%{version}
 git clone --recurse-submodules -j8 %{url}.git %{name}-%{version}
+tar -czf %{_sourcedir}/%{name}-%{version}.tar.gz %{name}-%{version}
 cd %{name}-%{version}/libmicrohttpd
 
 %build 
