@@ -6,7 +6,7 @@ License: GNU LGPL v2.1
 Group: Development/Libraries
 URL: https://github.com/rinigus/pkg-libmicrohttpd
 
-Source: http://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-%{version}.tar.gz
+Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires: gcc-c++ libtool texinfo

@@ -6,7 +6,7 @@ License: LGPL and BSD 2-clause license
 Group: Development/Libraries
 URL: https://github.com/rinigus/pkg-kyotocabinet
 
-Source: http://fallabs.com/kyotocabinet/pkg/kyotocabinet-%{version}.tar.gz
+Source: %{name}-%{version}.tar.gz
 #Patch0:     rm_native_optimization.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
