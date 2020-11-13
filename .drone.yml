@@ -12,9 +12,8 @@ steps:
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl sed -i 's/$STRIP -g/$STRIP -v -g/g' /usr/lib/rpm/meego/brp-strip
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git flex bison gcc libtool
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/jq.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -ba SPECS/jq.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
     image: rclone/rclone
@@ -43,9 +42,8 @@ steps:
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl sed -i 's/$STRIP -g/$STRIP -v -g/g' /usr/lib/rpm/meego/brp-strip
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ libtool texinfo
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/libmicro.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -ba SPECS/libmicro.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
     image: rclone/rclone
@@ -74,9 +72,8 @@ steps:
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl sed -i 's/$STRIP -g/$STRIP -v -g/g' /usr/lib/rpm/meego/brp-strip
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ zlib-devel zlib
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/kyoto.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -ba SPECS/kyoto.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
     image: rclone/rclone
@@ -105,9 +102,8 @@ steps:
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl sed -i 's/$STRIP -g/$STRIP -v -g/g' /usr/lib/rpm/meego/brp-strip
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/lz4.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -ba SPECS/lz4.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
     image: rclone/rclone
@@ -136,9 +132,8 @@ steps:
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl sed -i 's/$STRIP -g/$STRIP -v -g/g' /usr/lib/rpm/meego/brp-strip
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ libtool
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/libpostal.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -ba SPECS/libpostal.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
     image: rclone/rclone
@@ -167,9 +162,8 @@ steps:
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl sed -i 's/$STRIP -g/$STRIP -v -g/g' /usr/lib/rpm/meego/brp-strip
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/marisa.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -ba SPECS/marisa.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
     image: rclone/rclone
@@ -198,9 +192,8 @@ steps:
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl sed -i 's/$STRIP -g/$STRIP -v -g/g' /usr/lib/rpm/meego/brp-strip
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ libtool
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/proj.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bq SPECS/proj.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
     image: rclone/rclone
@@ -242,10 +235,9 @@ steps:
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl sed -i 's/$STRIP -g/$STRIP -v -g/g' /usr/lib/rpm/meego/brp-strip
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ python harfbuzz-devel sqlite-devel boost-devel freetype-devel libxml2-devel libjpeg-turbo-devel libpng-devel libtiff-devel cairo-devel
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -iv ./RPMS/armv7hl/proj*.rpm  --nodeps
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/mapnik.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -ba SPECS/mapnik.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
     image: rclone/rclone
@@ -289,10 +281,9 @@ steps:
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl sed -i 's/$STRIP -g/$STRIP -v -g/g' /usr/lib/rpm/meego/brp-strip
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ libtool vim-enhanced cmake lua lua-devel protobuf-devel libcurl-devel boost-devel boost-date-time boost-filesystem boost-system boost-iostreams boost-regex boost-system zlib-devel protobuf zlib
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -iv ./RPMS/armv7hl/*.rpm --nodeps
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/val.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -ba SPECS/val.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
     image: rclone/rclone
@@ -337,10 +328,9 @@ steps:
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl sed -i 's/$STRIP -g/$STRIP -v -g/g' /usr/lib/rpm/meego/brp-strip
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git protobuf cmake protobuf-devel libxml2-devel
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -iv ./RPMS/armv7hl/libmarisa*.rpm  --nodeps
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/libosmscout.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -ba SPECS/libosmscout.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
     image: rclone/rclone
@@ -384,10 +374,9 @@ steps:
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl sed -i 's/$STRIP -g/$STRIP -v -g/g' /usr/lib/rpm/meego/brp-strip
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git libcurl-devel sqlite-devel cairo-devel harfbuzz-devel libjpeg-turbo-devel libpng-devel libtiff-devel libxml2-devel zlib libcurl protobuf-devel boost-devel boost-date-time boost-chrono boost-filesystem boost-iostreams boost-regex boost-system desktop-file-utils systemd-devel
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -iv ./RPMS/armv7hl/*.rpm --nodeps
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/osmserver.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -ba SPECS/osmserver.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
     image: rclone/rclone
@@ -425,9 +414,8 @@ steps:
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl sed -i 's/$STRIP -g/$STRIP -v -g/g' /usr/lib/rpm/meego/brp-strip
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git cmake gcc-c++ sqlite-devel zlib-devel libcurl-devel libicu-devel
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/qmapbox.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -ba SPECS/qmapbox.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
     image: rclone/rclone
@@ -469,10 +457,9 @@ steps:
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl sed -i 's/$STRIP -g/$STRIP -v -g/g' /usr/lib/rpm/meego/brp-strip
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git gcc-c++ libcurl-devel openssl-devel
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -iv ./RPMS/armv7hl/*.rpm --nodeps
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/mapboxqml.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -ba SPECS/mapboxqml.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
     image: rclone/rclone
@@ -516,10 +503,9 @@ steps:
     user: root
     commands:
       - cp -R ~nemo/.scratchbox2/ /root
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl sed -i 's/$STRIP -g/$STRIP -v -g/g' /usr/lib/rpm/meego/brp-strip
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl zypper -n in git make gettext libkeepalive
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpm -iv ./RPMS/armv7hl/*.rpm --nodeps
-      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -bb SPECS/puremaps.spec
+      - sb2 -R -t SailfishOS-3.4.0.22-armv7hl rpmbuild -ba SPECS/puremaps.spec
       - sb2 -R -t SailfishOS-3.4.0.22-armv7hl cp -R /root/rpmbuild/RPMS/ ./
   - name: upload-artifacts
     image: rclone/rclone
